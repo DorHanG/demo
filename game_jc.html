@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<script src="js/jquery-3.1.0.min.js" type="text/javascript"></script>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/messages_zh.js"></script>
+		<script src="js/sql.js"></script>
+		<script src="js/money_jb.js"></script>
+		<script src="js/login_jc.js"></script>
+		<script src="js/regi_jc.js"></script>
+		<script src="js/loand.js"></script>
+		<script src="js/Main_interface.js"></script>
+		<script src="js/shop.js"></script>
+		<script src="js/mycheku.js"></script>
+		<script src="js/lunbo.js"></script>
+		<script src="js/PicCarousel.js"></script>
+		<script src="js/guankasrecc.js"></script>
+		<script src="js/game_go.js"></script>
+		<script src="js/game_my_cheshou.js"></script>
+		<script src="js/yaogan.js"></script>
+		<script src="js/game_car.js"></script>
+		<script src="js/endscree.js"></script>
+		<link href="css/game_jc.css" type="text/css" rel="stylesheet">
+
+		<title></title>
+		<script>
+			$(function() {
+				function callback(str) {
+					if(str == "登入") {
+						$('#game').empty();
+						var jm_zc = new Regi_jc(callback);
+						$('#game').append(jm_zc.$div)
+					}
+					if(str == "注册") {
+						$('#game').empty();
+						var jm = new Login_jc(callback);
+						$('#game').append(jm.$div)
+					}
+					if(str == "loand") {
+						$('#game').empty();
+						var loand_kc = new Loand(callback);
+						$('#game').append(loand_kc.$div_loand)
+					}
+					if(str == "主页面") {
+						$('#game').empty();
+						var main_fac = new Main(callback);
+						$('#game').append(main_fac.$div)
+					}
+					if(str == "商城") {
+						$('#game').empty();
+						var shop_sd = new shop_kc(callback);
+						$('#game').append(shop_sd.$div)
+					}
+					if(str == "车库") {
+						$('#game').empty();
+						var m_cheku = new Mycheku_kc(callback);
+						$('#game').append(m_cheku.$div)
+					}
+					if(str == "地图") {
+						$('#game').empty();
+						var ditu = new mylunbo(callback);
+
+						$('#game').append(ditu.$div);
+						$(".A_Demo").PicCarousel("init");
+						ditu.fanfa();
+					}
+					if(str == "关卡") {
+						$('#game').empty();
+						var myguanka = new Guanka(callback);
+						$('#game').append(myguanka.$div)
+						myguanka.fanfagk();
+					}
+					if(str == "游戏") {
+						$('#game').empty();
+						var youxi = new Demoo(callback);
+
+						$('#game').append(youxi.$div, youxi.$ditu, youxi.$yaogan, youxi.ditu_cj, youxi.$div_djs);
+					}
+					if(str == "结算") {
+						$('#game').empty();
+						var jiesuan = new zh_end(callback);
+						$('#game').append(jiesuan.$div)
+					}
+
+				}
+
+				var jm = new Login_jc(callback);
+				var jm_zc = new Regi_jc(callback);
+				$('#game').append(jm.$div)
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="audio_1">
+			<audio id="music_m" src="music/Theme.m4a" controls="controls" loop="loop" autoplay="autoplay"></audio><input id="muics_qd" type="button" value="确定">
+		</div>
+
+		<div id="game"></div>
+	</body>
+
+</html>
